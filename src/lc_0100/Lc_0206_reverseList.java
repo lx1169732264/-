@@ -1,0 +1,30 @@
+package lc_0100;
+
+/**
+ * 反转一个单链表。
+ *
+ * 示例:
+ *
+ * 输入: 1->2->3->4->5->NULL
+ * 输出: 5->4->3->2->1->NULL
+ */
+public class Lc_0206_reverseList {
+    public ListNode reverseList(ListNode head) {
+        ListNode pre =null;
+        ListNode curr=head;
+        ListNode next;
+        while (curr!=null){
+            next=curr.next;
+            curr.next = pre;
+            pre =curr;
+            curr=next;
+        }
+        return pre;
+    }
+    
+    public class ListNode {
+      int val;
+      ListNode next;
+      ListNode(int x) { val = x; }
+  }
+}

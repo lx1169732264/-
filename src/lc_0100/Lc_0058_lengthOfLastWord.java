@@ -1,4 +1,4 @@
-package lc;
+package lc_0100;
 
 /**
  * 给定一个仅包含大小写字母和空格 ' ' 的字符串 s，返回其最后一个单词的长度。
@@ -10,17 +10,23 @@ package lc;
  */
 public class Lc_0058_lengthOfLastWord {
     public static int lengthOfLastWord(String s) {
-        if (s.endsWith(" ")) {
+        int end = s.length() - 1;
+        //1.找到最后一个非空字符的下标
+        while (end >= 0 && s.charAt(end) == ' ') {
+            end--;
+        }
+        if (end < 0) {
             return 0;
         }
-        int i = s.lastIndexOf(' ');
-        if (i == -1){
-            return s.length();
-        }else if(i == s.length()){
-            return
+        int start = end;
+        //2.找到下一个空字符的下标
+        while (start >= 0 && s.charAt(start) != ' ') {
+            start--;
         }
-        return s.length()-i-1;
+        //3.相减之后得到字符串长度
+        return end - start;
     }
+
 
     public static void main(String[] args) {
         System.out.println(lengthOfLastWord("a "));

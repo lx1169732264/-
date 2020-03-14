@@ -1,4 +1,4 @@
-package lc;
+package lc_0100;
 
 public class Lc_0007_reverse {
     /**
