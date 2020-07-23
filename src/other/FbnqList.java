@@ -1,4 +1,4 @@
-package array;
+package other;
 
 /**
  * 斐波那切数列
