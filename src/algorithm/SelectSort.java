@@ -1,4 +1,4 @@
-package array;
+package algorithm;
 
 import java.util.Arrays;
 
@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @author boss
  */
 public class SelectSort {
-    public static void sort(int[] arr) {
+    public static void selectSort(int[] arr) {
         //temp用户替换数
         int temp, minIndex, i, j;
         for (i = 0; i < arr.length - 1; i++) {
@@ -34,8 +34,7 @@ public class SelectSort {
 
     public static void main(String[] args) {
         int[] arr = new int[]{3, 4, 6, 7, 2, 7, 2, 8, 0, 9, 1};
-        SelectSortTest selectSortTest = new SelectSortTest();
-        selectSortTest.selectSort(arr);
+        selectSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 }

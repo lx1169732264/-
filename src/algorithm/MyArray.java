@@ -1,4 +1,4 @@
-package array;
+package algorithm;
 
 /**
  * 数组

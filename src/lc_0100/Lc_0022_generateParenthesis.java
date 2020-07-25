@@ -1,7 +1,5 @@
 package lc_0100;
 
-import array.MyArray;
-
 import java.util.ArrayList;
 import java.util.List;
 

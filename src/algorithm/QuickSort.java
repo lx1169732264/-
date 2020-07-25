@@ -1,4 +1,4 @@
-package array;
+package algorithm;
 
 import java.util.Arrays;
 
@@ -16,7 +16,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] arr = new int[]{3, 4, 6, 7, 2, 7, 2, 8, 0, 9, 1};
-        QuickSortTest.quickSort(arr, 0, arr.length - 1);
+        quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -25,8 +25,7 @@ public class QuickSort {
             //把数组中的第0个数字做为标准数
             int stard = arr[start];
             //记录需要排序的下标
-            int low = start;
-            int high = end;
+            int low = start, high = end;
             //循环找比标准数大的数和比标准数小的数
             while (low < high) {
                 //高位>低位 && 高位>标准数	不用动,只移下标
