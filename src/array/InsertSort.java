@@ -3,7 +3,7 @@ package array;
 import java.util.Arrays;
 
 /**
- * 插入排序
+ * 插入排序 n^2
  * 前面n-1(其中n>=2)个数已经是排好顺序的，将第n个数插到合适位置，使得插入后序列有序
  *
  * @author boss
