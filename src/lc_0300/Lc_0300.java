@@ -1,4 +1,4 @@
-package lc_300;
+package lc_0300;
 
 import java.util.Arrays;
 
