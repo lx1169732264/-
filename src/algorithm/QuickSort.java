@@ -22,10 +22,8 @@ public class QuickSort {
 
     public static void quickSort(int[] arr, int start, int end) {
         if (start < end) {
-            //把数组中的第0个数字做为标准数
-            int stard = arr[start];
-            //记录需要排序的下标
-            int low = start, high = end;
+            //数组中第0个数为标准数
+            int stard = arr[start], low = start, high = end;
             //循环找比标准数大的数和比标准数小的数
             while (low < high) {
                 //高位>低位 && 高位>标准数	不用动,只移下标

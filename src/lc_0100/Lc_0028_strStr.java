@@ -8,25 +8,26 @@ package lc_0100;
  * 输出: 2
  */
 public class Lc_0028_strStr {
-    public static int strStr(String haystack, String needle) {
-        if (needle.equals("")) {
+    /**
+     * 滑动窗口     适合字符串遍历时,寻找一段长度固定的字符
+     * needle的第一个字符为startChar
+     * 每次找到startChar在字符串中出现的下标start ,截取start+needle.length长度的字符串,比较是否相等
+     */
+    public int strStr(String haystack, String needle) {
+        if ("".equals(needle)) {
             return 0;
         }
-        if (haystack.equals("")) {
-            return -1;
-        }
-        int count = needle.length();
-        for (int i = 0; i <= haystack.length() - 1; i++) {
-            if (haystack.charAt(i) == needle.charAt(0)) {
-                if (((haystack.length() - i) >= count) && haystack.substring(i, i + count).equals(needle)) {
-                    return i;
-                }
+
+        char startChar = needle.charAt(0);
+        int start = haystack.indexOf(startChar);
+        int length = needle.length();
+
+        while (-1 != start && start + length <= haystack.length()) {
+            if (haystack.substring(start, start + length).equals(needle)) {
+                return start;
             }
+            start = haystack.indexOf(startChar, start + 1);
         }
         return -1;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(strStr("asas", ""));
     }
 }
