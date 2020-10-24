@@ -1,4 +1,4 @@
-package lc_1000;
+package lc_1100;
 
 import java.util.ArrayList;
 import java.util.List;
