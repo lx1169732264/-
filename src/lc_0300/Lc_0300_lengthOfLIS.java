@@ -11,7 +11,7 @@ import java.util.Arrays;
  * 输出: 4
  * 解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。
  */
-public class Lc_0300 {
+public class Lc_0300_lengthOfLIS {
     public static int lengthOfLIS(int[] nums) {
         int len = nums.length;
         if (len < 2) {
