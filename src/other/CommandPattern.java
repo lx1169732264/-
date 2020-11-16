@@ -1,16 +1,15 @@
 package other;
 
-/**
- * @author lx
- */
 public class CommandPattern {
     public static void main(String[] args) {
         SaveButton saveButton = new SaveButton();
         Textbox textbox = new Textbox();
 
+        //将页面对象与命令绑定,命令的构造方法中传入了页面元素textbox
         saveButton.bindCommand(new PrintCommand(textbox));
 
         textbox.setContext("aa");
+        //页面对象调用命令对象      命令对象调用业务逻辑,处理页面元素
         saveButton.doPrint();
 
         textbox.setContext("bb");
@@ -20,21 +19,21 @@ public class CommandPattern {
 
 /**
  * UI层,保存按钮
- * 构造方法传入命令对象,完成按钮与命令的绑定
- * 实现了UI和逻辑的分离
  */
 class SaveButton {
     private Command command;
 
+    /**
+     *  传入命令对象,完成按钮与命令的绑定,实现了UI和逻辑的分离
+     */
     public void bindCommand(Command command) {
         this.command = command;
     }
 
     public void doPrint() {
-        if (null == command) {
-            throw new RuntimeException("初始化失败");
+        if (null != command) {
+            command.execute();
         }
-        command.execute();
     }
 }
 
