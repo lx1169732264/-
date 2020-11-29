@@ -1,6 +1,6 @@
 package algorithm.graph;
 
-import com.jg.tree.IndexMinPriorityQueue;
+import algorithm.tree.IndexMinPriorityQueue;
 
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;

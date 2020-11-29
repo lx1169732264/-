@@ -1,6 +1,7 @@
 package algorithm.tree;
 
-import com.jg.list.Queue;
+
+import algorithm.list.Queue;
 
 /**
  * 二叉树
