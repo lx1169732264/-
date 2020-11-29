@@ -10,7 +10,7 @@ import java.util.Map;
  * 返回词汇表 words 中你掌握的所有单词的 长度之和。
  * <p>
  * 示例 1：
- * 输入：words = ["cat","bt","hat","tree"], chars = "atach"
+ * 输入：words = ["cat","bt","hat","algorithm.tree"], chars = "atach"
  * 输出：6
  * 解释：
  * 可以形成字符串 "cat" 和 "hat"，所以答案是 3 + 3 = 6。
@@ -107,7 +107,7 @@ public class lc_1160_countCharacters {
     }
 
     public static void main(String[] args) {
-        String[] str = new String[]{"cat", "bt", "hat", "tree"};
+        String[] str = new String[]{"cat", "bt", "hat", "algorithm/tree"};
         String chars = "atach";
         System.out.println(countCharacters2(str, chars));
     }

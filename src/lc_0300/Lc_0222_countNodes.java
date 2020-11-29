@@ -20,8 +20,15 @@ import util.TreeNode;
  */
 public class Lc_0222_countNodes {
 
-    int res = 0;
+    /**
+     *
+     */
+    public int countNodes2(TreeNode root) {
+        return root==null?0:1+countNodes(root.left)+countNodes(root.right);
+    }
 
+    
+    int res = 0;
     public int countNodes(TreeNode root) {
         if (null == root) {
             return 0;
