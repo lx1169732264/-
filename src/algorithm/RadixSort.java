@@ -13,32 +13,30 @@ public class RadixSort {
 
     //d表示最大的数有多少位
     public static void sort(int[] number, int d) {
-        int k = 0;
-        int n = 1;
         //控制排序依据在哪一位(个十百千)
-        int m = 1;
+        int n = 1, m = 1;
         //数组的第一维表示余数0-9
         int[][] temp = new int[10][number.length];
         //orderp[i] 表示该位是i的数的个数
-        int[] order = new int[10];
+        int[] count = new int[10];
         while (m <= d) {
-            for (int value : number) {
-                int lsd = ((value / n) % 10);
-                temp[lsd][order[lsd]] = value;
-                order[lsd]++;
+            for (int num : number) {
+                int i = ((num / n) % 10);
+                temp[i][count[i]] = num;
+                count[i]++;
             }
 
             for (int i = 0; i < 10; i++) {
-                if (order[i] != 0) {
-                    for (int j = 0; j < order[i]; j++) {
-                        number[k] = temp[i][j];
-                        k++;
+                int index = 0;
+                if (count[i] != 0) {
+                    for (int j = 0; j < count[i]; j++) {
+                        number[index] = temp[i][j];
+                        index++;
                     }
                 }
-                order[i] = 0;
+                count[i] = 0;
             }
             n *= 10;
-            k = 0;
             m++;
         }
     }
