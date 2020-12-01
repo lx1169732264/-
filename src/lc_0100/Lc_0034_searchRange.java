@@ -20,6 +20,37 @@ import org.junit.Test;
  * @author lx
  */
 public class Lc_0034_searchRange {
+    public int[] searchRange2(int[] nums, int target) {
+        int left = 0, right = nums.length - 1, min = (left + right) / 2;
+        int[] res = new int[]{-1, -1};
+        if (nums.length == 0) {
+            return res;
+        }
+
+        while (nums[min] != target) {
+            if (left == right) {
+                return res;
+            }
+            if (nums[min] < target) {
+                left = min + 1;
+            } else {
+                right = min;
+            }
+            min = (left + right) / 2;
+        }
+        left = min;
+        right = min;
+        while (left > 0 && nums[left - 1] == target) {
+            left--;
+        }
+        while (right < nums.length - 1 && nums[right + 1] == target) {
+            right++;
+        }
+        res[0] = left;
+        res[1] = right;
+        return res;
+    }
+
 
     public int[] searchRange(int[] nums, int target) {
         if (nums.length == 0) {
@@ -78,17 +109,5 @@ public class Lc_0034_searchRange {
         }
         // 由于 findFirstPosition 方法可以返回是否找到，这里无需单独再做判断
         return right;
-    }
-
-    @Test
-    public void test() {
-//        int[] res = new int[]{5, 7, 7, 8, 8, 10};
-//        int[] res = new int[]{0};
-//        int[] res = new int[]{2,2};
-        int[] res = new int[]{1,2,3,3,3,3,4,5,9};
-        int[] ints = searchRange(res, 3);
-        for (int anInt : ints) {
-            System.out.println(anInt);
-        }
     }
 }
