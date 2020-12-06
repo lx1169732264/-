@@ -1,4 +1,4 @@
-package algorithm;
+package other;
 
 
 public class SnowflakeIdWorker {
