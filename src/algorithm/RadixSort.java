@@ -4,7 +4,7 @@ package algorithm;
  * 基数排序
  * 将所有待比较数值（正整数）统一为同样的数位长度，数位较短的数前面补零
  * 然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后, 数列就变成一个有序序列
- * 基数排序的方式可以采用LSD（Least significant digital）或MSD（Most significant digital）
+ * 基数排序的方式可以采用LSD/MSD
  * LSD的排序方式由键值的最右边开始，而MSD则相反，由键值的最左边开始
  *
  * @author lx
@@ -17,7 +17,7 @@ public class RadixSort {
         int n = 1, m = 1;
         //数组的第一维表示余数0-9
         int[][] temp = new int[10][number.length];
-        //orderp[i] 表示该位是i的数的个数
+        //统计数组第一维已插入元素的个数
         int[] count = new int[10];
         while (m <= d) {
             for (int num : number) {
@@ -38,14 +38,6 @@ public class RadixSort {
             }
             n *= 10;
             m++;
-        }
-    }
-
-    public static void main(String[] args) {
-        int[] data = {73, 22, 93, 43, 55, 14, 28, 65, 39, 81, 33, 100};
-        RadixSort.sort(data, 3);
-        for (int datum : data) {
-            System.out.print(datum + "");
         }
     }
 }
