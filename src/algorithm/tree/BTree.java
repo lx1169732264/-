@@ -6,13 +6,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-/**
- * B树代码实现
- *
- * @Author: 杨德石
- * @Date: 2020/7/20 20:50
- * @Version 1.0
- */
 public class BTree<K extends Comparable<K>, V> {
 
     /**

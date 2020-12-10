@@ -27,6 +27,26 @@ import java.util.Arrays;
  * @author lx
  */
 public class Lc_0062_uniquePaths {
+
+    public int uniquePaths3(int m, int n) {
+        int[][] res = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            res[i][0] = 1;
+        }
+
+        for (int i = 0; i < n; i++) {
+            res[0][i] = 1;
+        }
+
+        for (int j = 1; j < m; j++) {
+            for (int i = 1; i < n; i++) {
+                res[j][i] = res[j][i - 1] + res[j - 1][i];
+            }
+        }
+        return res[m - 1][n - 1];
+    }
+
+
     /**
      * 这题根据图示可以看出是杨辉三角
      * <p>

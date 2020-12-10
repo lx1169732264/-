@@ -5,10 +5,6 @@ import algorithm.list.Queue;
 
 /**
  * 二叉树
- *
- * @Author: 杨德石
- * @Date: 2020/7/5 15:00
- * @Version 1.0
  */
 public class BinaryTree {
 
