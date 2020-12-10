@@ -1,5 +1,7 @@
 package algorithm;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 
 /**
@@ -9,9 +11,25 @@ import java.util.Arrays;
  * @author boss
  */
 public class InsertSort {
-    public static void insertSort(int[] arr) {
-        int i, j, temp;
-        for (i = 0; i < arr.length; i++) {
+
+    public void insertSort2(int[] arr) {
+        int j,temp;
+        for (int i = 0; i < arr.length; i++) {
+            temp=arr[i];
+            for ( j = i; j > 0; j--) {
+                if (temp<arr[j-1]){
+                    arr[j]=arr[j-1];
+                    continue;
+                }
+                break;
+            }
+            arr[j]=temp;
+        }
+    }
+
+    public void insertSort(int[] arr) {
+        int j, temp;
+        for (int i = 0; i < arr.length; i++) {
             //假定arr[i]比前面小,将arr[i]与前面相比较,,temp=arr[i],即为本轮要排序的数
             temp = arr[i];
             for (j = i; j > 0 && temp < arr[j - 1]; j--) {
@@ -23,9 +41,10 @@ public class InsertSort {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         int[] arr = new int[]{3, 4, 6, 7, 2, 7, 2, 8, 0, 9, 1};
-        insertSort(arr);
+        insertSort2(arr);
         System.out.println(Arrays.toString(arr));
     }
 }

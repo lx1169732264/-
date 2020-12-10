@@ -1,4 +1,4 @@
-package ms_100;
+package ms;
 
 import java.util.ArrayList;
 import java.util.List;
