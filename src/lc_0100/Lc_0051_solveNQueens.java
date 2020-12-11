@@ -31,38 +31,37 @@ public class Lc_0051_solveNQueens {
      * 斜方向2 行与列之和相等，例如 (3,0)和 (1,2)
      */
     public List<List<String>> solveNQueens(int n) {
-        List<List<String>> solutions = new ArrayList<>();
+        List<List<String>> res = new ArrayList<>();
         int[] queens = new int[n];
         Arrays.fill(queens, -1);
         Set<Integer> columns = new HashSet<>(), diagonals1 = new HashSet<>(), diagonals2 = new HashSet<>();
-        backtrack(solutions, queens, n, 0, columns, diagonals1, diagonals2);
-        return solutions;
+        backtrack(res, queens, n, 0, columns, diagonals1, diagonals2);
+        return res;
     }
 
-    public void backtrack(List<List<String>> solutions, int[] queens, int n, int row,
+    public void backtrack(List<List<String>> res, int[] queens, int n, int row,
                           Set<Integer> columns, Set<Integer> diagonals1, Set<Integer> diagonals2) {
         if (row == n) {
-            List<String> board = generateBoard(queens, n);
-            solutions.add(board);
+            res.add(generateBoard(queens, n));
             return;
         }
         for (int i = 0; i < n; i++) {
-            if (columns.contains(i)) {
+
+            //当前列已存在皇后/方向1/2已存在,不能插入
+            int diagonal1 = row - i, diagonal2 = row + i;
+            if (columns.contains(i) || diagonals1.contains(diagonal1) || diagonals2.contains(diagonal2)) {
                 continue;
             }
-            int diagonal1 = row - i;
-            if (diagonals1.contains(diagonal1)) {
-                continue;
-            }
-            int diagonal2 = row + i;
-            if (diagonals2.contains(diagonal2)) {
-                continue;
-            }
+
+            //在合适的位置放入皇后,并记录列/方向1/方向2
             queens[row] = i;
             columns.add(i);
             diagonals1.add(diagonal1);
             diagonals2.add(diagonal2);
-            backtrack(solutions, queens, n, row + 1, columns, diagonals1, diagonals2);
+
+            backtrack(res, queens, n, row + 1, columns, diagonals1, diagonals2);
+
+            //剪枝
             queens[row] = -1;
             columns.remove(i);
             diagonals1.remove(diagonal1);
@@ -71,7 +70,7 @@ public class Lc_0051_solveNQueens {
     }
 
     public List<String> generateBoard(int[] queens, int n) {
-        List<String> board = new ArrayList<String>();
+        List<String> board = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             char[] row = new char[n];
             Arrays.fill(row, '.');

@@ -3,11 +3,6 @@ package algorithm.graph;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 
-/**
- * @Author: 杨德石
- * @Date: 2020/8/1 15:13
- * @Version 1.0
- */
 public class BreadthFirstSearch {
 
     /**

@@ -3,7 +3,7 @@ package lc_0500;
 /**
  * @author lx
  */
-public class Lc_463_islandPerimeter {
+public class Lc_0463_islandPerimeter {
     public static int islandPerimeter(int[][] grid) {
         int count = 0, pre;
         for (int y = 0, x = 0; y < grid.length; y++) {
