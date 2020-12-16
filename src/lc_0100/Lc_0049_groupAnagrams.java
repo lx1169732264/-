@@ -21,7 +21,7 @@ import java.util.zip.CheckedOutputStream;
  * @author lx
  */
 public class Lc_0049_groupAnagrams {
-    @Test
+
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> res = new LinkedList<>();
         Map<String, List<String>> map = new HashMap<>();

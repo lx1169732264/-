@@ -17,22 +17,24 @@ public class Lc_0941_validMountainArray {
             return false;
         }
 
-        int i = 0, j = A.length - 1;
-        while (i < A.length - 1) {
-            if (A[i + 1] > A[i]) {
-                i++;
-            } else {
-                break;
-            }
+        int i = 0;
+        //递增
+        while (i < A.length - 1 && A[i + 1] > A[i]) {
+            i++;
         }
-        while (j > 1) {
-            if (A[j - 1] > A[j]) {
-                j--;
-            } else {
-                break;
-            }
+
+        //i==0:没有递增,只有递减    i == A.length - 1:没有递减,只有递增
+        if (i == 0 || i == A.length - 1) {
+            return false;
         }
-        return i == j && i != A.length - 1 && j != 0;
+
+        //递减
+        while (i < A.length - 1 && A[i] > A[i + 1]) {
+            i++;
+        }
+
+        //计算得到的i为单个山脉的长度,不会计算可能存在的其他山脉
+        return i == A.length - 1;
     }
 }
 
