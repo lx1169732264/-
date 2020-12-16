@@ -33,26 +33,24 @@ public class DaXi_MinPath {
 
     /**
      * @param n     节点总数；节点编号从 1 开始，⼀直到 n，共有 n 个；
-     * @param edges ⽆向图的边；edges[i] 表示边Mi，其中 edges[i][0] 和 edges[i][1] 是Mi的两个节点的编号，edges[i][2] 是Mi对应的代价 Ci
+     * @param nums ⽆向图的边；nums[i] 表示边Mi，其中 nums[i][0] 和 nums[i][1] 是Mi的两个节点的编号，nums[i][2] 是Mi对应的代价 Ci
      * @param start 路径的开始节点编号
      * @param end   路径的结束节点编号
      */
-    int beautifulPath(int n, int[][] edges, int start, int end) {
-        Map<Integer, Map<Integer, Integer>> edgesMap = getEdgesMap(n, edges);
+    int beautifulPath(int n, int[][] nums, int start, int end) {
+        Map<Integer, Map<Integer, Integer>> edgesMap = getEdgesMap(n, nums);
         int result = minPath(edgesMap, start, end);
         return result == Integer.MAX_VALUE ? -1 : result;
     }
 
     //构建图
-    private Map<Integer, Map<Integer, Integer>> getEdgesMap(int n, int[][] edges) {
+    private Map<Integer, Map<Integer, Integer>> getEdgesMap(int n, int[][] nums) {
         Map<Integer, Map<Integer, Integer>> map = new HashMap<>(2 * n);
         List<int[]> list = new ArrayList<>(n);
-        Collections.addAll(list, edges);
+        Collections.addAll(list, nums);
         list.forEach(e -> {
-            int start = e[0];
-            int end = e[1];
-            int distance = e[2];
-            map.computeIfAbsent(start, k -> new HashMap<>(n));
+            int start = e[0],end = e[1],distance = e[2];
+            map.computeIfAbsent(start, k -> new HashMap<>());
             map.get(start).merge(end, distance, (a, b) -> b < a ? b : a);
         });
         return map;
