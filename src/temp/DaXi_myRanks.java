@@ -1,4 +1,4 @@
-package offer;
+package temp;
 
 import org.junit.Assert;
 import org.junit.Test;

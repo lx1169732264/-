@@ -2,11 +2,6 @@ package algorithm.graph;
 
 import java.util.Stack;
 
-/**
- * @Author: 杨德石
- * @Date: 2020/8/1 17:41
- * @Version 1.0
- */
 public class DepthFirstOrder {
 
     /**

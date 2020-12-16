@@ -1,4 +1,4 @@
-package offer;
+package temp;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -54,7 +54,7 @@ public class DaXi_merge {
 
             res.add(new int[]{start, end});
         }
-        return res.toArray(new int[0][]);
+        return res.toArray(new int[][]{});
     }
 
     @Test
