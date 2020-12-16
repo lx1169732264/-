@@ -1,5 +1,8 @@
 package lc_0100;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.util.*;
 
 /**
@@ -78,5 +81,15 @@ public class Lc_0051_solveNQueens {
             board.add(new String(row));
         }
         return board;
+    }
+
+    @Test
+    public void test() {
+        int test1 = 4;
+        List<List<String>> res1 = new ArrayList<>();
+        res1.add(Arrays.asList(".Q..", "...Q", "Q...", "..Q."));
+        res1.add(Arrays.asList("..Q.", "Q...", "...Q", ".Q.."));
+
+        Assert.assertEquals(res1,solveNQueens(test1));
     }
 }
