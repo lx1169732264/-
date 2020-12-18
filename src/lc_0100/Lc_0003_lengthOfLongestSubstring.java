@@ -1,7 +1,9 @@
 package lc_0100;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.Assert;
+import org.junit.Test;
+
+import java.util.*;
 
 /**
  * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
@@ -18,7 +20,30 @@ import java.util.List;
  * 请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
  */
 public class Lc_0003_lengthOfLongestSubstring {
-    public static int lengthOfLongestSubstring(String s) {
+
+    public int lengthOfLongestSubstring2(String s) {
+        int max = 0;
+        Queue<Character> queue = new LinkedList<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            //重复时从队列弹出
+            if (queue.contains(c)) {
+                max = Math.max(max, queue.size());
+                while (queue.peek() != c) {
+                    queue.poll();
+                }
+                queue.poll();
+            }
+
+            queue.offer(c);
+        }
+        return Math.max(max, queue.size());
+    }
+
+
+    public int lengthOfLongestSubstring(String s) {
         int n = s.length(), ans = 0;
         //假设字符集为ASCII 128
         int[] index = new int[128];
@@ -32,8 +57,16 @@ public class Lc_0003_lengthOfLongestSubstring {
         return ans;
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         String s = "sddfc";
-        System.out.println(lengthOfLongestSubstring(s));
+        String s2 = "pwwkew";
+        String s3 = "";
+        String s4 = " ";
+        Assert.assertEquals(3,lengthOfLongestSubstring(s));
+        Assert.assertEquals(3,lengthOfLongestSubstring(s2));
+        Assert.assertEquals(0,lengthOfLongestSubstring(s3));
+        Assert.assertEquals(1,lengthOfLongestSubstring(s4));
+
     }
 }
