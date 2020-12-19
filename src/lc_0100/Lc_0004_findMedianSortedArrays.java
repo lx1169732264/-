@@ -1,5 +1,7 @@
 package lc_0100;
 
+import java.math.BigDecimal;
+
 /**
  * 寻找两个正序数组的中位数
  * 给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。
@@ -31,32 +33,28 @@ package lc_0100;
  * @author lx
  */
 public class Lc_0004_findMedianSortedArrays {
+
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int leftLength = nums1.length;
-        int rightLength = nums2.length;
+        int len1 = nums1.length;
+        int len2 = nums2.length;
         // 为了保证第一个数组长度<=第二个数组
-        if (leftLength > rightLength) {
+        if (len1 > len2) {
             return findMedianSortedArrays(nums2, nums1);
         }
         // 分割线左边的所有元素需要满足的个数 m + (n - m + 1) / 2;
         // 两个数组长度之和为偶数时，当在长度之和上+1时，由于整除是向下取整，所以不会改变结果
         // 两个数组长度之和为奇数时，按照分割线的左边比右边多一个元素的要求，此时在长度之和上+1，就会被2整除，会在原来的数的基础上+1，于是多出来的那个1就是左边比右边多出来的一个元素
-        int totalLeft = (leftLength + rightLength + 1) / 2;
-        // 在 nums1 的区间 [0, leftLength] 里查找恰当的分割线，
-        // 使得 nums1[i - 1] <= nums2[j] && nums2[j - 1] <= nums1[i]
-        int left = 0;
-        int right = leftLength;
-        // nums1[i - 1] <= nums2[j]
-        //  此处要求第一个数组中分割线的左边的值 不大于(小于等于) 第二个数组中分割线的右边的值
-        // nums2[j - 1] <= nums1[i]
-        //  此处要求第二个数组中分割线的左边的值 不大于(小于等于) 第一个数组中分割线的右边的值
+        int totalLeft = (len1 + len2 + 1) / 2;
+
+        // 在 nums1 的区间 [0, len1] 里查找恰当的分割线，使得 nums1[i - 1] <= nums2[j] && nums2[j - 1] <= nums1[i]
+        int left = 0,right = len1;
+
         // 循环条件结束的条件为指针重合，即分割线已找到
         while (left < right) {
             // 二分查找，此处为取第一个数组中左右指针下标的中位数，决定起始位置
             // 此处+1首先是为了不出现死循环，即left永远小于right的情况
             // left和right最小差距是1，此时下面的计算结果如果不加1会出现i一直=left的情况，而+1之后i才会=right
-            // 于是在left=i的时候可以破坏循环条件，其次下标+1还会保证下标不会越界，因为+1之后向上取整，保证了
-            // i不会取到0值，即i-1不会小于0
+            // 于是在left=i的时候可以破坏循环条件，其次下标+1还会保证下标不会越界，因为+1之后向上取整，保证i不会取到0值，即i-1不会小于0
             // 此时i也代表着在一个数组中左边的元素的个数
             int i = left + (right - left + 1) / 2;
             // 第一个数组中左边的元素个数确定后，用左边元素的总和-第一个数组中元素的总和=第二个元素中左边的元素的总和
@@ -90,7 +88,7 @@ public class Lc_0004_findMedianSortedArrays {
         // 等i=第一个数组的长度时，说明第一个数组分割线右边没有值，为了不影响
         // nums2[j - 1] <= nums1[i] 和 Math.min(nums1RightMin, nums2RightMin)
         // 的判断，所以将它设置为int的最大值
-        int nums1RightMin = i == leftLength ? Integer.MAX_VALUE : nums1[i];
+        int nums1RightMin = i == len1 ? Integer.MAX_VALUE : nums1[i];
         // 当j=0时，说明第二个数组分割线左边没有值，为了不影响
         // nums2[j - 1] <= nums1[i] 和 Math.max(nums1LeftMax, nums2LeftMax)
         // 的判断，所以将它设置为int的最小值
@@ -98,9 +96,9 @@ public class Lc_0004_findMedianSortedArrays {
         // 等j=第二个数组的长度时，说明第二个数组分割线右边没有值，为了不影响
         // nums1[i - 1] <= nums2[j] 和 Math.min(nums1RightMin, nums2RightMin)
         // 的判断，所以将它设置为int的最大值
-        int nums2RightMin = j == rightLength ? Integer.MAX_VALUE : nums2[j];
+        int nums2RightMin = j == len2 ? Integer.MAX_VALUE : nums2[j];
         // 如果两个数组的长度之和为奇数，直接返回两个数组在分割线左边的最大值即可
-        if (((leftLength + rightLength) % 2) == 1) {
+        if (((len1 + len2) % 2) == 1) {
             return Math.max(nums1LeftMax, nums2LeftMax);
         } else {
             // 如果两个数组的长度之和为偶数，返回的是两个数组在左边的最大值和两个数组在右边的最小值的和的二分之一
