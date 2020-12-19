@@ -70,6 +70,8 @@ public class Lc_0860_lemonadeChange {
                         return false;
                     }
                     break;
+                default:
+                    break;
             }
         }
         return true;

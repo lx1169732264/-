@@ -1,6 +1,6 @@
-package temp;
+package other;
 
-public class Test {
+public class DaXi_Test {
     public int[] test(int[] nums) {
         //index非0的下标
         int index = 0;
