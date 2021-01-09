@@ -1,4 +1,4 @@
-package other;
+package lc_offer;
 
 import org.junit.Assert;
 import org.junit.Test;

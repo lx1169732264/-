@@ -1,4 +1,4 @@
-package Lc_offer;
+package lc_offer;
 
 import java.util.ArrayList;
 import java.util.List;

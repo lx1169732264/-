@@ -13,17 +13,17 @@ public class Lc_0042_trap {
      * 能否接住雨水取决于左右两侧的"柱子"都要>0
      * 雨水数量由左右的最小值决定    "水桶定理"
      */
-    int maxValue = -1, maxAddr = 0, result = 0;
+    int max = -1, manIndex = 0, result = 0;
     public int trap(int[] height) {
         //首先找到最大值和它的下标
         for (int i = 0; i < height.length; i++) {
-            if (height[i] >= maxValue) {
-                maxValue = height[i];
-                maxAddr = i;
+            if (height[i] >= max) {
+                max = height[i];
+                manIndex = i;
             }
         }
-        for (int left = 0; left < maxAddr; left++) {
-            for (int i = left + 1; i <= maxAddr; i++) {
+        for (int left = 0; left < manIndex; left++) {
+            for (int i = left + 1; i <= manIndex; i++) {
                 //对于左边到中间,i<left就能接到雨水,此时left>i<maxAddr
                 if (height[i] < height[left]) {
                     result += (height[left] - height[i]);
@@ -33,8 +33,8 @@ public class Lc_0042_trap {
                 }
             }
         }
-        for (int right = height.length - 1; right > maxAddr; right--) {
-            for (int i = right - 1; i >= maxAddr; i--) {
+        for (int right = height.length - 1; right > manIndex; right--) {
+            for (int i = right - 1; i >= manIndex; i--) {
                 if (height[i] < height[right]) {
                     result += (height[right] - height[i]);
                 } else {
