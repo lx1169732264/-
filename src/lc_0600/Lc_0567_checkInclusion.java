@@ -8,7 +8,7 @@ import java.util.Arrays;
  * 示例1:
  * 输入: s1 = "ab" s2 = "eidbaooo"
  * 输出: True
- *  
+ * <p>
  * 示例2:
  * 输入: s1= "ab" s2 = "eidboaoo"
  * 输出: False
