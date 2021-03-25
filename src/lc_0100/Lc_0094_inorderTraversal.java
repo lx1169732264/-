@@ -28,12 +28,12 @@ import java.util.List;
  * 示例 5：
  * 输入：root = [1,null,2]
  * 输出：[1,2]
- *  
+ *
  * 提示：
  * 树中节点数目在范围 [0, 100] 内
  * -100 <= Node.val <= 100
- *  
- * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
+ *
+ * 进阶:递归算法很简单，你可以通过迭代算法完成吗？
  */
 public class Lc_0094_inorderTraversal {
     public List<Integer> inorderTraversal(TreeNode root) {

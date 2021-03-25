@@ -1,8 +1,8 @@
 package lc_1100;
 
 /**
- * 对于字符串 S 和 T，只有在 S = T + ... + T（T 与自身连接 1 次或多次）时，我们才认定 “T 能除尽 S”。
- * 返回最长字符串 X，要求满足 X 能除尽 str1 且 X 能除尽 str2。
+ * 对于字符串S 和T，只有在 S = T + ... + T（T与自身连接 1 次或多次）时，我们才认定“T 能除尽 S”。
+ * 返回最长字符串X，要求满足X 能除尽 str1 且X 能除尽 str2。
  * <p>
  * 示例 1：
  * 输入：str1 = "ABCABC", str2 = "ABC"
@@ -19,7 +19,7 @@ package lc_1100;
  * 提示：
  * 1 <= str1.length <= 1000
  * 1 <= str2.length <= 1000
- * str1[i] 和 str2[i] 为大写英文字母
+ * str1[i] 和str2[i] 为大写英文字母
  */
 public class Lc_1071_gcdOfStrings {
     /**

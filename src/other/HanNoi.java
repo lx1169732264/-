@@ -3,7 +3,7 @@ package other;
  * 古代有一个塔，塔内有3个座A、B、C，开始时A座有n个盘子，盘子大小不相等，大的在下，小的在上。
  * 有一个老和尚想把这n个盘子从A座移动到C座，但每次只允许移动一个盘，
  * 且在移动过程中在3个座上都始终保持大盘在下，小盘在上
- * @author boss
+ * @author lx
  */
 public class HanNoi {
 

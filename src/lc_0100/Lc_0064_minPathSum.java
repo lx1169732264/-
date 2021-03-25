@@ -3,7 +3,7 @@ package lc_0100;
 import java.util.Arrays;
 
 /**
- * 给定一个包含非负整数的 m x n 网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
+ * 给定一个包含非负整数的 mxn网格，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
  * 说明：每次只能向下或者向右移动一步。
  * <p>
  * 输入:
@@ -13,7 +13,7 @@ import java.util.Arrays;
  * 输出: 7
  * 解释: 因为路径 1→3→1→1→1 的总和最小。
  *
- * @author boss
+ * @author lx
  */
 public class Lc_0064_minPathSum {
     public int minPathSum(int[][] grid) {

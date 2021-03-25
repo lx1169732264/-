@@ -10,11 +10,11 @@ import java.util.List;
  * <p>
  * 示例 1：
  * 输入: n = 5, m = 3
- * 输出: 3
+ * 输出:3
  * <p>
  * 示例 2：
  * 输入: n = 10, m = 17
- * 输出: 2
+ * 输出:2
  */
 public class ms_0062_lastRemaining {
     public static int lastRemaining(int n, int m) {

@@ -13,7 +13,7 @@ import java.util.Arrays;
  * 输入: s1= "ab" s2 = "eidboaoo"
  * 输出: False
  *
- * @author boss
+ * @author lx
  */
 public class Lc_0567_checkInclusion {
     /**

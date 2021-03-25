@@ -1,7 +1,7 @@
 package lc_0100;
 
 /**
- * @author boss
+ * @author lx
  */
 public class Lc_0014_longestCommonPrefix {
     //方法1 水平扫描法

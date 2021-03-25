@@ -13,7 +13,7 @@ package lc_offer;
  * 输入：[2,2,2,0,1]
  * 输出：0
  *
- * @author boss
+ * @author lx
  */
 public class Lc_offer_11 {
     public int findMin(int[] nums) {

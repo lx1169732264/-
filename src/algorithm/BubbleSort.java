@@ -12,7 +12,7 @@ import java.util.Arrays;
  * V2.0 用flag判断当前是否有序,可以少遍历几次
  * V3.0 每次遍历记录下"最后一次交换"的位置,则后面的元素都没被交换,也就是它们都是有序的
  *
- * @author boss
+ * @author lx
  */
 public class BubbleSort {
     public static void main(String[] args) {

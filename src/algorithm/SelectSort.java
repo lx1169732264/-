@@ -11,7 +11,7 @@ import java.util.Arrays;
  * 数据交换次数:n-1
  * 时间复杂度:n^2/2-n/2+n-1 -> n^2
  *
- * @author boss
+ * @author lx
  */
 public class SelectSort {
     public static void selectSort(int[] arr) {

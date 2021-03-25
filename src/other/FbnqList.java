@@ -2,7 +2,7 @@ package other;
 
 /**
  * 斐波那切数列
- * @author boss
+ * @author lx
  */
 public class FbnqList {
 
